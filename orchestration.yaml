@@ -1,0 +1,18 @@
+# Orchestration flow for Privacy Compliance Guardian
+# Defines the agent execution order for a full compliance workflow
+
+flow:
+  - watchdog_agent
+  - data_detective_agent
+  - consent_tracker_agent
+  - redaction_bot_agent
+  - audit_commander_agent
+
+description: |
+  This file defines the order in which agents are triggered during a data ingestion event.
+  The flow is:
+    1. watchdog_agent: Detects new data ingestion events and starts the workflow.
+    2. data_detective_agent: Analyzes the ingested data for compliance-relevant features.
+    3. consent_tracker_agent: Checks and tracks user consent related to the data.
+    4. redaction_bot_agent: Applies redaction or anonymization as required.
+    5. audit_commander_agent: Audits the process and logs compliance actions.
